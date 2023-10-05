@@ -26,7 +26,12 @@ class AuthController extends Controller
 
     public function dashboard()
     {
-        return view('welcome');
+        return view('dashboard-content');
+    }
+
+    public function hello()
+    {
+        return view('hello');
     }
 
     public function store(Request $request)
