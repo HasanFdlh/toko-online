@@ -27,7 +27,7 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div class="brand-logo">
-                                <img src="../../images/logo.svg" alt="logo">
+                                <img src="{{ url('assets/images/logo.svg') }}" alt="logo">
                             </div>
                             <h4>New here?</h4>
                             <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
@@ -55,10 +55,11 @@
                                 </div>
                                 <div class="mt-3">
                                     <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                                    type="submit">SIGN UP</button>
+                                        type="submit">SIGN UP</button>
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
-                                    Already have an account? <a href="{{ url('/')}}" class="text-primary">Login</a>
+                                    Already have an account? <a href="{{ url('/') }}"
+                                        class="text-primary">Login</a>
                                 </div>
                             </form>
                         </div>
