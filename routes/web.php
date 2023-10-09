@@ -24,5 +24,7 @@ Route::get('/register', function () {
 
 Route::post('login-check', [AuthController::class, 'login']);
 Route::post('store', [AuthController::class, 'store']);
-Route::get('ini-awal', [AuthController::class, 'dashboard']);
+
+Route::get('ini-dashboard', [AuthController::class, 'dashboard']);
 Route::get('ini-hello', [AuthController::class, 'hello']);
+Route::get('ini-biodata', [AuthController::class, 'biodata']);

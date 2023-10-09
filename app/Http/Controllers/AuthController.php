@@ -34,6 +34,11 @@ class AuthController extends Controller
         return view('hello');
     }
 
+    public function biodata()
+    {
+        return view('biodata');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
