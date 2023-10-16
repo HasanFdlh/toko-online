@@ -90,26 +90,39 @@ class ProductController extends Controller
         $this->validate($request, [
             'nama_product' => 'required',
             'harga_product' => 'required',
-            'foto_product' => 'required|file|image|mimes:jpeg,png,jpg|max:5048',
             'category_product' => 'required',
             'deskripsi_product' => 'required',
         ]);
 
         $check = ProductModel::where('id', $id)->first();
-        File::delete($check->foto_product);
 
-        $file = $request->file('nama_product');
-        $namaFile = "Product-" . time() . "-" . $file->getClientOriginalName();
-        $tujuanUpload = 'img/Product';
-        $path = $file->move($tujuanUpload, $namaFile);
+        if ($request->foto_product) {
+            File::delete($check->foto_product);
 
-        $check->update([
-            'foto_product' => $path,
-            'nama_product' => $request->nama_product,
-            'category_product' => $request->category_product,
-            'harga_product' => $request->harga_product,
-            'deskripsi_product' => $request->deskripsi_product,
-        ]);
+            $file = $request->file('foto_product');
+            $namaFile = "Product-" . time() . "-" . $file->getClientOriginalName();
+            $tujuanUpload = 'img/Product';
+            $path = $file->move($tujuanUpload, $namaFile);
+
+            $check->update([
+                'foto_product' => $path,
+                'nama_product' => $request->nama_product,
+                'category_product' => $request->category_product,
+                'harga_product' => $request->harga_product,
+                'deskripsi_product' => $request->deskripsi_product,
+            ]);
+
+            return redirect('product')->with('success', 'Berhasil Di update');
+        } else {
+            $check->update([
+                'nama_product' => $request->nama_product,
+                'category_product' => $request->category_product,
+                'harga_product' => $request->harga_product,
+                'deskripsi_product' => $request->deskripsi_product,
+            ]);
+
+            return redirect('product')->with('success', 'Berhasil Di update');
+        }
     }
 
     /**
