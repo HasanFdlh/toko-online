@@ -93,7 +93,6 @@ class ProductController extends Controller
             'category_product' => 'required',
             'deskripsi_product' => 'required',
         ]);
-
         $check = ProductModel::where('id', $id)->first();
 
         if ($request->foto_product) {
