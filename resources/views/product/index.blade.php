@@ -44,14 +44,17 @@
                                         <td>{{ $data->nama_product }}</td>
                                         <td>{{ $data->harga_product }}</td>
                                         <td>{{ $data->category_product }}</td>
-                                        <td>{{ $data->foto_product }}</td>
+                                        <td>
+                                            <img src="{{ url($data->foto_product)}}" style="height: 100px;">
+                                        </td>
                                         <td>{{ $data->deskripsi_product }}</td>
                                         <td>
-                                            <a class="btn btn-sm btn-warning" href="{{ route('product.edit/'.$data->id) }}"> Edit </a>
-                                            <form action="{{ route('category.destroy', $category->id) }}" method="post">
+                                            <a class="btn btn-warning" href="{{ route('product.edit', $data->id) }}">
+                                                Edit </a>
+                                            <form action="{{ route('product.destroy', $data->id) }}" method="post">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="submit" class="btn btn-sm btn-danger btn-block">
+                                                <button type="submit" class="btn btn-danger">
                                                     Hapus
                                                 </button>
                                             </form>
@@ -76,12 +79,28 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- body modal -->
-                <form action="{{ url('import-education') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <b>Document</b>
+                            <b>Nama Product</b>
+                            <input name="nama_product" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <b>Harga Product</b>
+                            <input name="harga_product" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <b>Category Product</b>
+                            <input name="category_product" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <b>Foto Product</b>
                             <input type="file" name="foto_product" class="form-control file-upload-info">
+                        </div>
+                        <div class="form-group">
+                            <b>Deskripsi Product</b>
+                            <input name="deskripsi_product" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
