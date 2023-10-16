@@ -319,7 +319,7 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="{{url('ini-dashboard')}}">
                             <i class="icon-grid menu-icon"></i>
                             <span class="menu-title">Dashboard</span>
                         </a>
@@ -439,7 +439,21 @@
                 </ul>
             </nav>
             <!-- partial -->
-            @yield('content')
+            <div class="main-panel">
+                <div class="content-wrapper">
+
+
+                    @yield('content')
+
+
+                </div>
+                <footer class="footer bg-white">
+                    <div class="d-sm-flex justify-content-center justify-content">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block"><a
+                                href="https://www.hasbelle.my.id/" target="_blank">© Toko Online. 2023.</a>
+                    </div>
+                </footer>
+            </div>
             <!-- main-panel ends -->
         </div>
         <!-- page-body-wrapper ends -->

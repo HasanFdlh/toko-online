@@ -18,25 +18,10 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('dashboard');
+            return redirect('ini-dashboard');
         }
 
         return back();
-    }
-
-    public function dashboard()
-    {
-        return view('dashboard-content');
-    }
-
-    public function hello()
-    {
-        return view('hello');
-    }
-
-    public function biodata()
-    {
-        return view('biodata');
     }
 
     public function store(Request $request)
@@ -58,5 +43,10 @@ class AuthController extends Controller
         $request->session()->regenerate();
 
         return redirect('/');
+    }
+
+    public function dashboard()
+    {
+        return view('dashboard-content');
     }
 }
