@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,5 @@ Route::post('login-check', [AuthController::class, 'login']);
 Route::post('store', [AuthController::class, 'store']);
 
 Route::get('ini-dashboard', [AuthController::class, 'dashboard']);
+
+Route::resource('product', ProductController::class);
