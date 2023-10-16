@@ -88,7 +88,7 @@
                         </div>
                         <div class="form-group">
                             <b>Harga Product</b>
-                            <input name="harga_product" class="form-control">
+                            <input type="number" name="harga_product" class="form-control">
                         </div>
                         <div class="form-group">
                             <b>Category Product</b>

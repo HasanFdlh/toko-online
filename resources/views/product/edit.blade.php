@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-group">
                     <b>Harga Product</b>
-                    <input name="harga_product" class="form-control" value="{{ $listProduct->harga_product }}">
+                    <input type="number" name="harga_product" class="form-control" value="{{ $listProduct->harga_product }}">
                 </div>
                 <div class="form-group">
                     <b>Category Product</b>
